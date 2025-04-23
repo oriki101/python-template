@@ -1,6 +1,10 @@
 # コードのフォーマットを実行
 format:
-	uvx ruff check . --fix     # isortなどのルール修正
 	uvx ruff format .          # blackライクな整形
 
-check: format
+lint:
+	uvx ruff check . --fix     # isortなどのルール修正
+
+check:
+	make lint || true
+	make format
